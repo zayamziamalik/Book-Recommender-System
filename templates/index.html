@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<style>
+    .text-white{
+        color:white;
+        font-size:1rem;
+    }
+</style>
+<body style="background: black; width:100%;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<nav class="navbar navbar-expand-lg" style="color:white; background: linear-gradient(to bottom, #0A3B1F , #15673A, #2BB569, #0A3B1F); border-radius: 1rem; margin: .5rem 0 0 0;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color:white;">BRS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/" style="color:white; text-decoration: underline;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recommend" style="color:white;">Recommend</a>
+        </li>
+{#        <li class="nav-item">#}
+{#          <a class="nav-link" href="#">Pricing</a>#}
+{#        </li>#}
+{#        <li class="nav-item">#}
+{#          <a class="nav-link disabled" aria-disabled="true">Disabled</a>#}
+{#        </li>#}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+{#    <nav class="navbar" style="background-color:#00a65a">#}
+{#        <a class="navbar-brand">My Book recommender</a>#}
+{#        <ul class="nav navbar-nav">#}
+{#            <li><a href="/">Home</a></li>#}
+{#            <li><a href="/recommend">Recommend</a></li>#}
+{#            <li><a>Contact</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+    <div style="width: 100%; height: fit-content; margin-top:.5rem; background: linear-gradient(to right, #0A3B1F , #15673A, #2BB569, #0A3B1F); border-radius: 1rem;">
+    <div class="container" style="width: 100%;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:30px; margin-top:15px">Top 50 Books</h1>
+            </div>
+
+            {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top:-10px">
+                    <a href="https://www.amazon.com/s?k= {{ book_name[i]  }}" style="text-decoration: none;">
+
+                    <div class="card" style="background: none; height: 40rem; width: 15rem; text-align: center; padding: 0; border: none">
+                        <div class="card-body" style="margin: auto;">
+                            <div  style="height: 25rem; width:15rem; background:url('https://about.proquest.com/globalassets/proquest/media/images/decrotive/oldbooks.jpg'); background-size: cover; border-radius: 2rem;">
+                            <img class="card-img-top text-white" src="{{ image[i] }}" alt="png" style="height: 25rem; width:15rem; border-radius: 2rem;">
+                            </div>
+{#                            {%rt=round(rating[i], 1)%}#}
+                            <div style="height: 5rem;">
+                                <p class="text-white">{{ book_name[i] }}</p>
+                            <h4 class="text-white">{{ author[i] }}</h4>
+                            <h4 class="text-white">Votes - {{ votes[i] }}</h4>
+                            <h4 class="text-white">Rating - {{ "{:.1f}".format(rating[i]) }}</h4>
+                            </div>
+                            </div>
+                    </div></a>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
